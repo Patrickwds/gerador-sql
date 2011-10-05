@@ -22,4 +22,19 @@ public class GeradorSqlTest {
 		assertEquals("INSERT INTO nome_tabela(coluna1,coluna2,coluna3) VALUES(15,30,40)", codigoSQL);	
 		}
 	
+	@Test
+	public void deveGerarSqlDeleteParaOutraTabela() {
+		String sqlGerado = GeradorSql.delete("outra_tabela");
+		assertEquals("DELETE FROM outra_tabela", sqlGerado );
+	}
+	
+	@Test
+	public void deveGerarSqlUpdate() {
+		String nomeTabela = "nome_tabela";
+		String nomeColuna = "coluna1";
+		String valor = "30";
+		String sqlGerado = GeradorSql.update(nomeTabela , nomeColuna , valor );
+		assertEquals("UPDATE nome_tabela SET coluna1 = 30;", sqlGerado );
+	}
+	
 }
