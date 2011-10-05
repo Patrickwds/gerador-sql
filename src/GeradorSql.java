@@ -1,4 +1,3 @@
-
 public class GeradorSql {
 
 	public static String insert(String nomeTabela, String[] nomeColunas,
